@@ -1,0 +1,6 @@
+build
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+Makefile
+*.ninja
