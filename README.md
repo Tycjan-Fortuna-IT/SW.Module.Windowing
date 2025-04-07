@@ -1,6 +1,6 @@
-# SW Windowing Module
+# SW.Module.Windowing
 
-The SW Windowing module provides a flexible and easy-to-use windowing system for creating and managing windows in a graphical application. It abstracts the platform-specific window creation and management code, allowing developers to focus on building the application's core functionality without worrying about the underlying platform details. The module supports creating multiple windows, handling input events, and managing window properties such as size, position, and title. It also provides a simple API for handling window events, such as resizing, moving, and closing windows, making it easy to build interactive applications with graphical user interfaces.
+The SW.Module.Windowing provides a flexible and easy-to-use windowing system for creating and managing windows in a graphical application. It abstracts the platform-specific window creation and management code, allowing developers to focus on building the application's core functionality without worrying about the underlying platform details. The module supports creating multiple windows, handling input events, and managing window properties such as size, position, and title. It also provides a simple API for handling window events, such as resizing, moving, and closing windows, making it easy to build interactive applications with graphical user interfaces.
 
 ## Tested Platforms
 
@@ -11,12 +11,12 @@ Used C++ dialect version: `20`
 
 ## Dependencies (SW modules)
 
-| Module | Link                                        | Version |
-| ------ | ------------------------------------------- | ------- |
-| Logger | https://github.com/Tycjan-Fortuna-IT/Logger | latest  |
-| Eventing | https://github.com/Tycjan-Fortuna-IT/Eventing | latest  |
+| Module             | Link                                                    | Version |
+| ------------------ | ------------------------------------------------------- | ------- |
+| SW.Module.Logger   | https://github.com/Tycjan-Fortuna-IT/SW.Module.Logger   | master  |
+| SW.Module.Eventing | https://github.com/Tycjan-Fortuna-IT/SW.Module.Eventing | master  |
 
-Placed in the same directory as the Eventing module.
+Placed in the same directory as the SW.Module.Eventing module.
 It is recommended to keep all modules in the same directory e.g. `Engine/modules/`.
 
 <!-- ## Installation (Premake5 - FancyBuildSystem)
@@ -24,7 +24,7 @@ It is recommended to keep all modules in the same directory e.g. `Engine/modules
 Add inside your main dependencies.lua following line:
 
 ```lua
-FBS.ImportModule("Engine/modules/Eventing");
+FBS.ImportModule("Engine/modules/SW.Module.Eventing");
 ```
 
 Replacing with correct path to the module. -->
@@ -51,7 +51,6 @@ With possible options:
 
 - `WINDOWING_EXPOSE_NATIVE_WIN32` - Exposes native Win32 window handle for advanced usage.
 - `WINDOWING_OPENGL_CONTEXT` - Enables OpenGL context creation. Disable for non-OpenGL projects.
-
 
 ### Example Usage
 
