@@ -3,8 +3,6 @@
 #include <GLFW/glfw3.h>
 #include <stb_image.h>
 
-#include <Logger/Logger.hpp>
-
 namespace SW::Windowing
 {
 

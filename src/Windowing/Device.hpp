@@ -7,8 +7,6 @@
 
 #include <Eventing/Eventing.hpp>
 
-#include <string>
-
 struct GLFWwindow;
 struct GLFWcursor;
 

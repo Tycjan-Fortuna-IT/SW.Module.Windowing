@@ -22,9 +22,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC vendor/GLFW/include)
 
 target_include_directories(${PROJECT_NAME} PUBLIC vendor/stb_image)
 
-target_include_directories(${PROJECT_NAME} PUBLIC ../SW.Module.Logger/src)
-target_link_libraries(${PROJECT_NAME} SW.Module.Logger)
-
+# target_include_directories(${PROJECT_NAME} PUBLIC ../SW.Module.Logger/src)
+# target_link_libraries(${PROJECT_NAME} SW.Module.Logger)
 target_include_directories(${PROJECT_NAME} PUBLIC ../SW.Module.Eventing/src)
 target_link_libraries(${PROJECT_NAME} SW.Module.Eventing)
 

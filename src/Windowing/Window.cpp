@@ -1,7 +1,5 @@
 #include "Window.hpp"
 
-#include <Logger/Logger.hpp>
-
 #include <GLFW/glfw3.h>
 
 #ifdef WINDOWING_EXPOSE_NATIVE_WIN32
@@ -66,7 +64,7 @@ namespace SW::Windowing
 			Window* window  = FindInstance(glfwWindow);
 			KeyCode keyCode = (KeyCode)key;
 
-			ASSERT(window);
+			ASSERT(window, "Window handle is null!");
 
 			switch (action)
 			{
@@ -91,7 +89,7 @@ namespace SW::Windowing
 			Window* window      = FindInstance(glfwWindow);
 			MouseCode mouseCode = (MouseCode)button;
 
-			ASSERT(window);
+			ASSERT(window, "Window handle is null!");
 
 			switch (action)
 			{
@@ -113,7 +111,7 @@ namespace SW::Windowing
 		glfwSetWindowIconifyCallback(m_Handle, [](GLFWwindow* glfwWindow, int iconified) {
 			Window* window = FindInstance(glfwWindow);
 
-			ASSERT(window);
+			ASSERT(window, "Window handle is null!");
 
 			if (iconified == GLFW_TRUE)
 				window->MinimizeEvent.Invoke();
@@ -125,7 +123,7 @@ namespace SW::Windowing
 		glfwSetWindowCloseCallback(m_Handle, [](GLFWwindow* glfwWindow) {
 			Window* window = FindInstance(glfwWindow);
 
-			ASSERT(window);
+			ASSERT(window, "Window handle is null!");
 
 			window->CloseEvent.Invoke();
 		});
@@ -133,7 +131,7 @@ namespace SW::Windowing
 		glfwSetWindowSizeCallback(m_Handle, [](GLFWwindow* glfwWindow, int width, int height) {
 			Window* window = FindInstance(glfwWindow);
 
-			ASSERT(window);
+			ASSERT(window, "Window handle is null!");
 
 			if (glfwWindow != glfwGetCurrentContext())
 				window->MakeContextCurrent();
@@ -149,7 +147,7 @@ namespace SW::Windowing
 		glfwSetFramebufferSizeCallback(m_Handle, [](GLFWwindow* glfwWindow, int width, int height) {
 			Window* window = FindInstance(glfwWindow);
 
-			ASSERT(window);
+			ASSERT(window, "Window handle is null!");
 
 			window->FramebufferResizeEvent.Invoke(width, height);
 		});
@@ -157,7 +155,7 @@ namespace SW::Windowing
 		glfwSetCursorPosCallback(m_Handle, [](GLFWwindow* glfwWindow, double x, double y) {
 			Window* window = FindInstance(glfwWindow);
 
-			ASSERT(window);
+			ASSERT(window, "Window handle is null!");
 
 			window->CursorMoveEvent.Invoke((float)x, (float)y);
 		});
@@ -165,7 +163,7 @@ namespace SW::Windowing
 		glfwSetWindowPosCallback(m_Handle, [](GLFWwindow* glfwWindow, int x, int y) {
 			Window* window = FindInstance(glfwWindow);
 
-			ASSERT(window);
+			ASSERT(window, "Window handle is null!");
 
 			window->MoveEvent.Invoke(x, y);
 		});
@@ -173,7 +171,7 @@ namespace SW::Windowing
 		glfwSetWindowFocusCallback(m_Handle, [](GLFWwindow* glfwWindow, int focused) {
 			Window* window = FindInstance(glfwWindow);
 
-			ASSERT(window);
+			ASSERT(window, "Window handle is null!");
 
 			if (focused == GLFW_TRUE)
 				window->GainFocusEvent.Invoke();
@@ -185,7 +183,7 @@ namespace SW::Windowing
 		glfwSetTitlebarHitTestCallback(m_Handle, [](GLFWwindow* glfwWindow, int /*xPos*/, int /*yPos*/, int* hit) {
 			Window* window = FindInstance(glfwWindow);
 
-			ASSERT(window);
+			ASSERT(window, "Window handle is null!");
 
 			*hit = window->IsOverTitleBar() ? 1 : 0;
 		});
