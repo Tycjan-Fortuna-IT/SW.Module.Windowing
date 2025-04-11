@@ -12,18 +12,12 @@ add_library(${PROJECT_NAME} STATIC ${HEADERS} ${SOURCES})
 option(WINDOWING_OPENGL_CONTEXT "Use OpenGL context" ON)
 option(WINDOWING_EXPOSE_NATIVE_WIN32 "Expose native Win32 window handle" OFF)
 
-# Link GLFW statically
-# set(BUILD_SHARED_LIBS OFF)
-# set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-# set_property(TARGET ${PROJECT_NAME} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 add_subdirectory(vendor/GLFW)
 target_link_libraries(${PROJECT_NAME} glfw)
 target_include_directories(${PROJECT_NAME} PUBLIC vendor/GLFW/include)
 
 target_include_directories(${PROJECT_NAME} PUBLIC vendor/stb_image)
 
-# target_include_directories(${PROJECT_NAME} PUBLIC ../SW.Module.Logger/src)
-# target_link_libraries(${PROJECT_NAME} SW.Module.Logger)
 target_include_directories(${PROJECT_NAME} PUBLIC ../SW.Module.Eventing/src)
 target_link_libraries(${PROJECT_NAME} SW.Module.Eventing)
 

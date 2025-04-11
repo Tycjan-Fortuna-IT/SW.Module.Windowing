@@ -8,7 +8,6 @@
 #include <string>
 
 #ifdef WINDOWING_EXPOSE_NATIVE_WIN32
-	#define NOMINMAX
 	#include <Windows.h>
 #endif
 
