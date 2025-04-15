@@ -403,11 +403,21 @@ namespace SW::Windowing
 		m_IsOverTitleBar = over;
 	}
 
+	float32 Window::GetDPIApproximate() const
+	{
+		float xscale, yscale;
+		
+		glfwGetWindowContentScale(m_Handle, &xscale, &yscale);
+		
+		return xscale;
+	}
+
 #ifdef WINDOWING_EXPOSE_NATIVE_WIN32
 	HWND Window::GetWin32WindowHandle() const
 	{
 		return glfwGetWin32Window(m_Handle);
 	}
+
 #endif
 
 } // namespace SW::Windowing

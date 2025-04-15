@@ -174,6 +174,10 @@ namespace SW::Windowing
 		// Return the framebuffer size (Viewport size)
 		std::pair<int, int> GetFramebufferSize() const;
 
+		// Return the framebuffer size (Viewport size) in pixels per inch (DPI)
+		// This is an approximation, as the DPI can be different for each axis
+		float32 GetDPIApproximate() const;
+
 		GLFWwindow* GetWindowHandle() const { return m_Handle; }
 
 #ifdef WINDOWING_EXPOSE_NATIVE_WIN32
